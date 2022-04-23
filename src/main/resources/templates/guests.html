@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Guest Page</title>
+</head>
+<body>
+    <h1>Guests Page</h1>
+
+    <table>
+        <tr>
+            <td>Guest Name</td>
+            <td>Guest Email</td>
+            <td>Guest Address</td>
+            <td>Guest Country</td>
+            <td>Guest Phone Number</td>
+            <td>Reservation Date</td>
+            <td>Room Name</td>
+        </tr>
+        <tr th:each="guestModel: ${guestModels}">
+            <td th:text="${guestModel.guestLastName} != null ? ${guestModel.guestLastName}+ ', '+ ${guestModel.guestName}:
+            ${guestModel.guestName}">Guest Name</td>
+            <td th:text="${guestModel.guestEmail}">Guest Email</td>
+            <td th:text="${guestModel.guestAddress}">Guest Address</td>
+            <td th:text="${guestModel.guestCountry} != null ? ${guestModel.guestCountry} : 'Not Provided'">Guest Country</td>
+            <td th:text="${guestModel.guestPhoneNumber} != null ? ${guestModel.guestPhoneNumber} : 'Not Provided'">Guest Phone Number</td>
+            <td th:text="${guestModel.reservationDate} != null ? ${guestModel.reservationDate} : 'Not Provided'">Reservation Date</td>
+            <td th:text="${guestModel.roomName} != null ? ${guestModel.roomName} : 'Not Provided'">Room Name</td>
+        </tr>
+    </table>
+</body>
+</html>
